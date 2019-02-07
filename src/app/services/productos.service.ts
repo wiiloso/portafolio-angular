@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Producto } from '../interfaces/producto.interface';
 
-import { resolve } from 'path';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,7 @@ export class ProductosService {
         this.productos = res;
         setTimeout(() => {
           this.cargando = false;
-        }, 2000);
+        }, 1000);
         resolve();
         console.log(res);
      });
@@ -39,7 +38,7 @@ export class ProductosService {
      } else {
       this.filtrarProductos(termino);
      }
-
+           console.log(this.productosFiltrado);
    }
    private filtrarProductos(termino: string) {
         console.log(this.productos);
